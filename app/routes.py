@@ -4,4 +4,4 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index():
-    return 'Hello, flask!'
+    return 'Next Objective: Load some shitty website kek!'
