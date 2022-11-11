@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="container g-4">
-    <h1 class="g-4">Hello, {{ current_user.username }}!</h1>
+    <h1 class="g-4">Welcome, {{ current_user.username }}!</h1>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-1 g-4">
     {% for post in posts %}
       <div class="col">

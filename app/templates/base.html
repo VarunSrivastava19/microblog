@@ -15,21 +15,27 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-gradient">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" rel="noopener noreferrer">MicroBlog</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" href="{{ url_for('index') }}" rel="noopener noreferrer">Home</a>
-          {% if current_user.is_anonymous %}
-          <a class="nav-link" href="{{ url_for('login') }}" rel="noopener noreferrer">Login</a>
-          {% else %}
-          <a class="nav-link" href="{{ url_for('logout') }}" rel="noopener noreferrer">Logout</a>
-          {% endif %}
-          <a class="nav-link" href="#" rel="noopener noreferrer">Placeholder</a>
-          <a class="nav-link" href="#" rel="noopener noreferrer">Placeholder</a>
-          <a class="nav-link" href="#" rel="noopener noreferrer">Placeholder</a>
-          <a class="nav-link" href="#" rel="noopener noreferrer">Placeholder</a>
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MicroBlog</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>  
+        <div class="offcanvas-body">
+          <div class="navbar-nav justify-content-start flex-grow-1 m-3-sm p-3-sm">
+            <a class="nav-link active" href="{{ url_for('index') }}" rel="noopener noreferrer">Home</a>
+            {% if current_user.is_anonymous %}
+            <a class="nav-link" href="{{ url_for('login') }}" rel="noopener noreferrer">Login</a>
+            {% else %}
+            <a class="nav-link" href="{{ url_for('logout') }}" rel="noopener noreferrer">Logout</a>
+            {% endif %}
+            <a class="nav-link" href="{{ url_for('user', username=current_user.username) }}" rel="noopener noreferrer">Profile</a>
+            <a class="nav-link" href="#" rel="noopener noreferrer">Placeholder</a>
+            <a class="nav-link" href="#" rel="noopener noreferrer">Placeholder</a>
+            <a class="nav-link" href="#" rel="noopener noreferrer">Placeholder</a>
+          </div>
         </div>
       </div>
     </div>
